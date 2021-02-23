@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMS">
-        <activity android:name=".addAttendance"></activity>
+        <activity
+            android:name=".admin"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/Theme.AMS.NoActionBar"></activity>
+        <activity android:name=".Profile" />
+        <activity android:name=".addAttendance" />
         <activity android:name=".editAll" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/actionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
