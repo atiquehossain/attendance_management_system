@@ -9,21 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMS">
-        <activity
-            android:name=".admin"
-            android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.AMS.NoActionBar"></activity>
-        <activity android:name=".Profile" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".addAttendance" />
         <activity android:name=".editAll" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/actionbar">
+        <activity android:name=".Profile"
+            android:theme="@style/Theme.AMS.AppBarOverlay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
