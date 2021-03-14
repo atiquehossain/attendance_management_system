@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMS">
+        <activity android:name=".Employee_home"></activity>
         <activity android:name=".EmployeeList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,15 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".addattend">
-
-        </activity>
+        <activity android:name=".addattend"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".addAttendance" />
         <activity android:name=".editAll" />
         <activity
             android:name=".Profile"
-            android:theme="@style/Theme.AMS.AppBarOverlay"></activity>
+            android:theme="@style/Theme.AMS.AppBarOverlay" />
 
         <meta-data
             android:name="preloaded_fonts"
