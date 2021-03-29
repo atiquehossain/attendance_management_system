@@ -6,7 +6,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class AdapterForEmployeeHome extends RecyclerView.Adapter<AdapterForEmployeeHome.ViewHolder> {
+
+    private List<ModelClassForEmployeeHome> userList;
+
+    public AdapterForEmployeeHome(List<ModelClassForEmployeeHome>userList){
+        this.userList=userList;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
