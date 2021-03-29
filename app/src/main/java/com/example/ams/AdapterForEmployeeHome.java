@@ -1,5 +1,6 @@
 package com.example.ams;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -18,7 +19,10 @@ public class AdapterForEmployeeHome extends RecyclerView.Adapter<AdapterForEmplo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_attendance_list,parent,false);
+        return new ViewHolder(view);
+
     }
 
     @Override
