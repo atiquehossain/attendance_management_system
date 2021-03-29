@@ -13,6 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="9/02"
+            android:id="@+id/e_m_l_date"
 
             android:gravity="center"/>
         <TextView
@@ -20,7 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="9.00"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/e_m_l_chekin"/>
 
         <TextView
             android:layout_weight="1"
@@ -28,7 +30,8 @@
             android:layout_height="match_parent"
             android:text="6.00"
 
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/e_m_l_chekout"/>
 
         <TextView
             android:layout_weight="1"
@@ -36,7 +39,8 @@
             android:layout_height="match_parent"
             android:text="0"
 
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/e_m_l_late"/>
 
         <TextView
             android:layout_weight="1"
@@ -44,7 +48,8 @@
             android:layout_height="match_parent"
             android:text="P"
 
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/e_m_l_status"/>
 
 
 
