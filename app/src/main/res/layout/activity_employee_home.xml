@@ -22,7 +22,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             tools:itemCount="50"
-            tools:listitem="@layout/employee_attendance_list"/>
+            tools:listitem="@layout/employee_attendance_list"
+            android:id="@+id/employee_home_recycleview"/>
 
     </LinearLayout>
 
