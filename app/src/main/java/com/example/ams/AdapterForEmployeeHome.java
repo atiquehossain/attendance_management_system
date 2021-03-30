@@ -22,6 +22,9 @@ public class AdapterForEmployeeHome extends RecyclerView.Adapter<AdapterForEmplo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        //View is building user interface
+        //LayoutInflater is used to create a new View
+
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_attendance_list,parent,false);
         return new ViewHolder(view);
 
@@ -29,14 +32,14 @@ public class AdapterForEmployeeHome extends RecyclerView.Adapter<AdapterForEmplo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Date newDate=userList.get(position).getE_m_l_date();
-        Date newcheckin=userList.get(position).getE_m_l_chekin();
-        Date newcheckout= userList.get(position).getE_m_l_chekout();
-        Date newLate=userList.get(position).getE_m_l_late();
+        String newDate=userList.get(position).getE_m_l_date();
+        String newcheckin=userList.get(position).getE_m_l_chekin();
+        String newcheckout= userList.get(position).getE_m_l_chekout();
+        String newLate=userList.get(position).getE_m_l_late();
         String newStatus=userList.get(position).getE_m_l_status();
         
         
-        holder.setData(newDate,newcheckin,newcheckout,newLate,newStatus);
+        holder.setData( newDate,newcheckin,newcheckout,newLate,newStatus);
 
 
     }
@@ -69,7 +72,7 @@ public class AdapterForEmployeeHome extends RecyclerView.Adapter<AdapterForEmplo
 
 
 
-        public void setData(Date newDate, Date newcheckin, Date newcheckout, Date newLate, String newStatus) {
+        public void setData(String newDate, String newcheckin, String newcheckout, String newLate, String newStatus) {
             textviewone.setText(newDate.toString());
             textviewtwo.setText(newcheckin.toString());
             textviewthree.setText(newcheckout.toString());

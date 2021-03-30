@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void openNewActivity(){
-        Intent intent = new Intent(this, editAll.class);
+        Intent intent = new Intent(this, Employee_home.class);
         startActivity(intent);
     }
 }
