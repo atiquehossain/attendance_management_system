@@ -59,7 +59,8 @@
                     android:textAlignment="center"
                     android:textColor="#fff"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/emailname"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -93,7 +94,8 @@
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:textStyle="bold"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword"
+                    android:id="@+id/password"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
