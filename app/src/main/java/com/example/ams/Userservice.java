@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 public interface Userservice {
 
     @POST("security/LoginOTPLess")
-    Call<String> userlogin(@Body LoginRequest loginRequest);
+    Call<LoginResponse> userlogin(@Body LoginRequest loginRequest);
 
 
 }
