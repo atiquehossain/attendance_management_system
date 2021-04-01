@@ -6,10 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitApi {
 
 
-    String baseurlOne="https://BLVWBIOTEST.banglalink.net/ResellerApp/api/security/ LoginOTPLess";
+    String baseurlOne="http://localhost:6042/api/Login";
 
    public static Retrofit getinstant(){
-       String baseurl="https://BLVWBIOTEST.banglalink.net/ResellerApp/api/";
+       String baseurl="http://localhost:6042";
        Retrofit retrofit = new Retrofit.Builder()
                .baseUrl(baseurl)
                .addConverterFactory(GsonConverterFactory.create())
