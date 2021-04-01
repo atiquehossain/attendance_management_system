@@ -9,10 +9,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ams.api.RetrofitApi;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
     Button button;
     TextView email;
     TextView password;
+
+
+    Userservice user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.emailname);
         password = findViewById(R.id.password);
 
+         user =RetrofitApi.getinstant().create(Userservice.class);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +41,21 @@ public class MainActivity extends AppCompatActivity {
 
                 if (validation()) {
 
-                    openNewActivity();
+                    user.userlogin(new LoginRequest()).enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            if(response.isSuccessful()){
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+
+                        }
+                    });
+
+                    //openNewActivity();
                 }
             }
         });
