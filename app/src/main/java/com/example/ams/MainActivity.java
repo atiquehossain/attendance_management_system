@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (validation()) {
+
                     openNewActivity();
                 }
             }
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void openNewActivity() {
         Intent intent = new Intent(this, Employee_home.class);
+
+
         startActivity(intent);
     }
 
