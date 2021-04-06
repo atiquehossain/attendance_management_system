@@ -20,7 +20,7 @@ public class RetrofitApi {
 //
 //   }
 
-    private static final String Base_url="http://localhost:6042/api/";
+    private static final String Base_url="http://192.168.0.5:6042/api/";
     private static RetrofitApi mInstance;
     private Retrofit retrofit;
     private RetrofitApi(){

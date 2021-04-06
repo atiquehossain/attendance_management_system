@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView email;
     TextView password;
+   // CheckBox isRememberMe =(CheckBox) findViewById(R.id.massage);
+    //Boolean checkbox=isRememberMe.isChecked();
     CheckBox isRememberMe;
 
 
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.emailname);
         password = findViewById(R.id.password);
         isRememberMe=findViewById(R.id.massage);
+        isRememberMe.setChecked(true);
 
 
         // user =RetrofitApi.getinstant().create(Userservice.class);
@@ -74,8 +77,12 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             try {
-                                String s=response.body().string();
-                                Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
+                                if (validation()){
+                                    String s=response.body().string();
+                                    Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
+
+                                }
+
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -85,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                            openNewActivity();
                         }
                     });
                 }
