@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ams.api.RetrofitApi;
 
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView email;
     TextView password;
+    CheckBox isRememberMe;
 
 
     Userservice user;
@@ -31,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         email = findViewById(R.id.emailname);
         password = findViewById(R.id.password);
+        isRememberMe=findViewById(R.id.massage);
 
-         user =RetrofitApi.getinstant().create(Userservice.class);
+
+        // user =RetrofitApi.getinstant().create(Userservice.class);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -41,21 +48,45 @@ public class MainActivity extends AppCompatActivity {
 
                 if (validation()) {
 
-                    user.userlogin(new LoginRequest()).enqueue(new Callback<String>() {
-                        @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
-                            if(response.isSuccessful()){
-
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<String> call, Throwable t) {
-
-                        }
-                    });
+//                    user.userlogin(new LoginRequest()).enqueue(new Callback<String>() {
+//                        @Override
+//                        public void onResponse(Call<String> call, Response<String> response) {
+//                            if(response.isSuccessful()){
+//
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<String> call, Throwable t) {
+//
+//                        }
+//                    });
 
                     //openNewActivity();
+
+                    Call<ResponseBody> call= RetrofitApi
+                            .getInstance()
+                            .getApi()
+                            .loginuser(email,
+                                    password,
+                                    isRememberMe);
+                    call.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            try {
+                                String s=response.body().string();
+                                Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
         });
