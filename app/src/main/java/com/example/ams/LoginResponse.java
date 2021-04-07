@@ -28,4 +28,13 @@ String String;
     public void setString(java.lang.String string) {
         String = string;
     }
+
+    @Override
+    public java.lang.String toString() {
+        return "LoginResponse{" +
+                "Data='" + Data + '\'' +
+                ", issuccess=" + issuccess +
+                ", String='" + String + '\'' +
+                '}';
+    }
 }

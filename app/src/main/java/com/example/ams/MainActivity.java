@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         isRememberMe.setChecked(true);
 
 
+
+
         // user =RetrofitApi.getinstant().create(Userservice.class);
 
 
@@ -67,32 +70,29 @@ public class MainActivity extends AppCompatActivity {
 
                     //openNewActivity();
 
-                    Call<ResponseBody> call= RetrofitApi
+                    Call<LoginResponse> call= RetrofitApi
                             .getInstance()
                             .getApi()
-                            .loginuser(email,
-                                    password,
-                                    isRememberMe);
-                    call.enqueue(new Callback<ResponseBody>() {
+                            .loginuser(email.getText().toString(),
+                                    password.getText().toString(),
+                                    true);
+                    call.enqueue(new Callback<LoginResponse>() {
                         @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            try {
-                                if (validation()){
-                                    String s=response.body().string();
-                                    Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
-
-                                }
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                           if(response.isSuccessful()){
+                               Log.e("njxcz",response.body().toString());
+                           }
+                            else {
+                               Log.e("njxsscdz","error");
+                           }
 
                         }
 
                         @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
-                            openNewActivity();
+                        public void onFailure(Call<LoginResponse> call, Throwable t) {
+                            Log.e("njxsscz",t.toString());
+
+
                         }
                     });
                 }

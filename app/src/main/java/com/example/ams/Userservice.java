@@ -13,10 +13,10 @@ import retrofit2.http.POST;
 public interface Userservice {
     @FormUrlEncoded
     @POST("Login")
-    Call<ResponseBody> loginuser(
-            @Field("email") TextView email,
-            @Field("password") TextView password,
-            @Field("isRememberMe") CheckBox isRememberMe
+    Call<LoginResponse> loginuser(
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("isRememberMe") boolean isRememberMe
     );
 
 
