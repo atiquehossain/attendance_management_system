@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.ams.api.RetrofitApi;
 
+
 import java.io.IOException;
 
 import okhttp3.ResponseBody;
@@ -70,31 +71,27 @@ public class MainActivity extends AppCompatActivity {
 
                     //openNewActivity();
 
-                    Call<LoginResponse> call= RetrofitApi
+                    Userservice newuserservice = RetrofitApi
                             .getInstance()
-                            .getApi()
-                            .loginuser(email.getText().toString(),
-                                    password.getText().toString(),
-                                    true);
-                    call.enqueue(new Callback<LoginResponse>() {
-                        @Override
-                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                           if(response.isSuccessful()){
-                               Log.e("njxcz",response.body().toString());
-                           }
-                            else {
-                               Log.e("njxsscdz","error");
-                           }
+                            .getApi();
+                newuserservice.loginUserV2(new DemoModel("R230018","kxqlzABQYn5olccbvuuBTuPeZBsuaZAq3UDe5LtxjeK08dQkYq8mbTREMnBe/C9zep4k9uqjkqFD58+m92iNxG2aHmONIMCmhPt8rNDF6Idkl/bcmdqpxdE0R6c75oh4")).enqueue(new Callback<DemoResponseModel>() {
+                    @Override
+                    public void onResponse(Call<DemoResponseModel> call, Response<DemoResponseModel> response) {
+                     if(response.isSuccessful()){
+                         Log.d("responseok", "onResponse: "+response.body().toString());
+                     }
+                     else {
+                         Log.d("responsefa3se", "onResponse: ");
+                     }
+                    }
 
-                        }
-
-                        @Override
-                        public void onFailure(Call<LoginResponse> call, Throwable t) {
-                            Log.e("njxsscz",t.toString());
+                    @Override
+                    public void onFailure(Call<DemoResponseModel> call, Throwable t) {
+                        Log.d("responseok", "onResponse: "+t.toString());
+                    }
+                });
 
 
-                        }
-                    });
                 }
             }
         });

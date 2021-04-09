@@ -20,7 +20,7 @@ public class RetrofitApi {
 //
 //   }
 
-    private static final String Base_url="http://27.147.159.194:81/api/";
+    private static final String Base_url="https://blvwbiotest.banglalink.net/ResellerApp/api/";
     private static RetrofitApi mInstance;
     private Retrofit retrofit;
     private RetrofitApi(){
