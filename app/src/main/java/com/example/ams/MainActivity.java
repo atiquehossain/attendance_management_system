@@ -20,6 +20,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     Button button;
@@ -42,6 +43,37 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         isRememberMe=findViewById(R.id.massage);
         isRememberMe.setChecked(true);
+        Retrofit retrofitApi;
+        retrofitApi =RetrofitApi.getinstant();
+
+        Userservice service= retrofitApi.create(Userservice.class);
+       Call<LoginResponse> servicecall =service.loginUserV2(new LoginRequest("String@gmail.com","emkqdazcvc",true));
+
+        servicecall.enqueue(new Callback<LoginResponse>() {
+                        @Override
+                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                            if(response.isSuccessful()){
+                                Log.d("responseok", "onResponse: "+response.body().toString());
+                                Toast.makeText(MainActivity.this, "success", Toast.LENGTH_SHORT).show();
+
+                            }
+                            else {
+                                Log.d("responsefa3se", "onResponse: ");
+                                Toast.makeText(MainActivity.this, "else", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+                            Log.d("responseok", "onResponse: "+t.toString());
+                            Toast.makeText(MainActivity.this, "failure", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+
 
 
 
@@ -52,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 if (validation()) {
 
@@ -70,29 +103,33 @@ public class MainActivity extends AppCompatActivity {
 //                    });
 
                     //openNewActivity();
-
-                    Userservice newuserservice = RetrofitApi
-                            .getInstance()
-                            .getApi();
-                newuserservice.loginUserV2(new DemoModel("R230018","kxqlzABQYn5olccbvuuBTuPeZBsuaZAq3UDe5LtxjeK08dQkYq8mbTREMnBe/C9zep4k9uqjkqFD58+m92iNxG2aHmONIMCmhPt8rNDF6Idkl/bcmdqpxdE0R6c75oh4")).enqueue(new Callback<DemoResponseModel>() {
-                    @Override
-                    public void onResponse(Call<DemoResponseModel> call, Response<DemoResponseModel> response) {
-                     if(response.isSuccessful()){
-                         Log.d("responseok", "onResponse: "+response.body().toString());
-                     }
-                     else {
-                         Log.d("responsefa3se", "onResponse: ");
-                     }
-                    }
-
-                    @Override
-                    public void onFailure(Call<DemoResponseModel> call, Throwable t) {
-                        Log.d("responseok", "onResponse: "+t.toString());
-                    }
-                });
+//
+//                    Userservice newuserservice = RetrofitApi
+//                            .getInstance()
+//                            .getApi();
+//                newuserservice.loginUserV2(new DemoModel("R230018","kxqlzABQYn5olccbvuuBTuPeZBsuaZAq3UDe5LtxjeK08dQkYq8mbTREMnBe/C9zep4k9uqjkqFD58+m92iNxG2aHmONIMCmhPt8rNDF6Idkl/bcmdqpxdE0R6c75oh4")).enqueue(new Callback<DemoResponseModel>() {
+//                    @Override
+//                    public void onResponse(Call<DemoResponseModel> call, Response<DemoResponseModel> response) {
+//                     if(response.isSuccessful()){
+//                         Log.d("responseok", "onResponse: "+response.body().toString());
+//                     }
+//                     else {
+//                         Log.d("responsefa3se", "onResponse: ");
+//                     }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<DemoResponseModel> call, Throwable t) {
+//                        Log.d("responseok", "onResponse: "+t.toString());
+//                    }
+//                });
 
 
                 }
+
+
+
+
             }
         });
 

@@ -17,15 +17,26 @@ import retrofit2.http.POST;
 
 public interface Userservice {
     @FormUrlEncoded
-    @POST("api/GetRetailer")
-    Call<LoginResponse> loginuser(
+    @POST("Login")
+    Call<LoginRequest>login(
             @Field("email") String email,
             @Field("password") String password,
             @Field("isRememberMe") boolean isRememberMe
     );
+//    @FormUrlEncoded
+//    @POST("api/GetRetailer")
+//    Call<LoginResponse> loginuser(
+//            @Field("email") String email,
+//            @Field("password") String password,
+//            @Field("isRememberMe") boolean isRememberMe
+//    );
+//
+
+    @POST("Login")
+    Call<LoginResponse> loginUserV2(@Body LoginRequest reqBody);
 
 
-    @POST("GetRetailer")
-    Call<DemoResponseModel> loginUserV2(@Body DemoModel reqBody);
+
+
 
 }

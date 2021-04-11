@@ -3,13 +3,13 @@ package com.example.ams;
 public class LoginResponse {
 String Data;
 boolean issuccess;
-String String;
+String message;
 
-    public java.lang.String getData() {
+    public String getData() {
         return Data;
     }
 
-    public void setData(java.lang.String data) {
+    public void setData(String data) {
         Data = data;
     }
 
@@ -21,12 +21,12 @@ String String;
         this.issuccess = issuccess;
     }
 
-    public java.lang.String getString() {
-        return String;
+    public String getMessage() {
+        return message;
     }
 
-    public void setString(java.lang.String string) {
-        String = string;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
@@ -34,7 +34,11 @@ String String;
         return "LoginResponse{" +
                 "Data='" + Data + '\'' +
                 ", issuccess=" + issuccess +
-                ", String='" + String + '\'' +
+                ", String='" + message + '\'' +
                 '}';
     }
+
+
+
+
 }
