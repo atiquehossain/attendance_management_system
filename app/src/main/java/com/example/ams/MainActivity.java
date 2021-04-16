@@ -43,35 +43,35 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         isRememberMe=findViewById(R.id.massage);
         isRememberMe.setChecked(true);
-        Retrofit retrofitApi;
-        retrofitApi =RetrofitApi.getinstant();
+//        Retrofit retrofitApi;
+//        retrofitApi =RetrofitApi.getinstant();
 
-        Userservice service= retrofitApi.create(Userservice.class);
-       Call<LoginResponse> servicecall =service.loginUserV2(new LoginRequest("String@gmail.com","emkqdazcvc",true));
+//        Userservice service= retrofitApi.create(Userservice.class);
+//       Call<LoginResponse> servicecall =service.loginUserV2(new LoginRequest("String@gmail.com","emkqdazcvc",true));
+//
+//        servicecall.enqueue(new Callback<LoginResponse>() {
+//                        @Override
+//                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+//                            if(response.isSuccessful()){
+//                                Log.d("responseok", "onResponse: "+response.body().toString());
+//                                Toast.makeText(MainActivity.this, "success", Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                            else {
+//                                Log.d("responsefa3se", "onResponse: ");
+//                                Toast.makeText(MainActivity.this, "else", Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                        }
 
-        servicecall.enqueue(new Callback<LoginResponse>() {
-                        @Override
-                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                            if(response.isSuccessful()){
-                                Log.d("responseok", "onResponse: "+response.body().toString());
-                                Toast.makeText(MainActivity.this, "success", Toast.LENGTH_SHORT).show();
-
-                            }
-                            else {
-                                Log.d("responsefa3se", "onResponse: ");
-                                Toast.makeText(MainActivity.this, "else", Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<LoginResponse> call, Throwable t) {
-
-                            Log.d("responseok", "onResponse: "+t.toString());
-                            Toast.makeText(MainActivity.this, "failure", Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
+//                        @Override
+//                        public void onFailure(Call<LoginResponse> call, Throwable t) {
+//
+//                            Log.d("responseok", "onResponse: "+t.toString());
+//                            Toast.makeText(MainActivity.this, "failure", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    });
 
 
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (validation()) {
+
 
 //                    user.userlogin(new LoginRequest()).enqueue(new Callback<String>() {
 //                        @Override
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 //                });
 
 
-                }
+
 
 
 

@@ -12,15 +12,15 @@ public class RetrofitApi {
 
    // String baseurlOne="http://localhost:6042/api/Login";
 
-   public static Retrofit getinstant(){
-       String baseurl="http://27.147.159.194:81/api/";
-       Retrofit retrofit = new Retrofit.Builder()
-               .baseUrl(baseurl)
-               .addConverterFactory(GsonConverterFactory.create())
-               .build();
-       return retrofit;
-
-   }
+//   public static Retrofit getinstant(){
+//       String baseurl="http://27.147.159.194:81/api/";
+//       Retrofit retrofit = new Retrofit.Builder()
+//               .baseUrl(baseurl)
+//               .addConverterFactory(GsonConverterFactory.create())
+//               .build();
+//       return retrofit;
+//
+//   }
 
 //    private static final String Base_url="https://blvwbiotest.banglalink.net/ResellerApp/api/";
 //    private static RetrofitApi mInstance;
@@ -62,4 +62,6 @@ public class RetrofitApi {
 //        return retrofit.create(Userservice.class);
 //
 //    }
+
+
 }
