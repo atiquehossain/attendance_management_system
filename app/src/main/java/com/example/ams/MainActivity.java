@@ -26,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView email;
     TextView password;
-   // CheckBox isRememberMe =(CheckBox) findViewById(R.id.massage);
-    //Boolean checkbox=isRememberMe.isChecked();
-    CheckBox isRememberMe;
 
+    // try to convert Boolean
+    CheckBox isRememberMe =(CheckBox) findViewById(R.id.massage);
+    Boolean checkbox=isRememberMe.isChecked();
+   // CheckBox isRememberMe;
 
     Userservice user;
 
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         isRememberMe=findViewById(R.id.massage);
         isRememberMe.setChecked(true);
+
+        //String convert
+        String stremail=email.getText().toString();
+        String strpassword=password.getText().toString();
 //        Retrofit retrofitApi;
 //        retrofitApi =RetrofitApi.getinstant();
 
@@ -123,8 +128,28 @@ public class MainActivity extends AppCompatActivity {
 //                        Log.d("responseok", "onResponse: "+t.toString());
 //                    }
 //                });
+Call<LoginResponse> call= RetrofitApi.getInstance().getService().login(stremail,strpassword, checkbox);
 
+call.enqueue(new Callback<LoginResponse>() {
+    @Override
+    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+LoginResponse loginResponse=response.body();
 
+if(response.isSuccessful()){
+    openNewActivity();
+    Toast.makeText(MainActivity.this,loginResponse.getMessage(),Toast.LENGTH_SHORT).show();
+}
+else {
+    Toast.makeText(MainActivity.this,loginResponse.getMessage(),Toast.LENGTH_SHORT).show();
+}
+    }
+
+    @Override
+    public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+        Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
+    }
+});
 
 
 

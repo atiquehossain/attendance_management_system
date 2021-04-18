@@ -1,11 +1,16 @@
 package com.example.ams.api;
 
+import com.example.ams.LoginResponse;
 import com.example.ams.Userservice;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
 
 public class RetrofitApi {
 
@@ -63,5 +68,25 @@ public class RetrofitApi {
 //
 //    }
 
+private static String BASE_URL="http://27.147.159.194:81/api/";
+private static  RetrofitApi retrofitApi;
+private static Retrofit retrofit;
 
+private RetrofitApi(){
+    retrofit=new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+}
+
+public static synchronized RetrofitApi getInstance(){
+    if(retrofitApi==null){
+        retrofitApi=new RetrofitApi();
+    }
+    return  retrofitApi;
+}
+
+public Userservice getService(){
+    return retrofit.create(Userservice.class);
+}
 }

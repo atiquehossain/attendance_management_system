@@ -36,6 +36,13 @@ public interface Userservice {
 //    Call<LoginResponse> loginUserV2(@Body LoginRequest reqBody);
 
 
+    @FormUrlEncoded
+    @POST("Login")
+    Call<LoginResponse> login(
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("isRememberMe") boolean isRememberMe
+    ) ;
 
 
 
